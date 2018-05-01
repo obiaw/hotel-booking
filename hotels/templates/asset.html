@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block head_title %}Assets {% endblock %}
+{% block content %}
+<div class="container-fluid" style=" background: #888; padding-bottom: 10px; color: #fff;">
+   <div class="col-md-4">
+    <h4>Total Assets</h4>
+    </div>
+    <ul class="navbar-right" style="padding-top:10px; margin:0px">
+     <a class="btn btn-success btn-sm" href="{% url 'new_asset' %}"><i class="fa fa-plus-circle"></i>&nbsp; &nbsp;
+     New Asset</a>
+     <a class="btn btn-primary btn-sm" href="#"><i class="fa fa-plus-circle"></i>&nbsp; &nbsp;
+     Print</a>
+    </ul>
+</div>
+
+    <div class="row" style="margin-top: 1em;">
+    <!--<ol class="breadcrumb">
+    <li><a href="#">Assets</a></li>
+    <li class="active">Total Assets</li>
+</ol>-->
+<div class="col-md-12">
+    {% if assets %}
+    <table class="table table-bordered table-hover">
+       <tr>
+        <thead>
+            <th>Serial No</th>
+            <th>Asset Name</th>
+            <th>Manufacturer</th>
+            <th>Model</th>
+            <th>Category</th>
+            <th>Description</th>
+            <th>Current Holder</th>
+            <th>Location/Branch</th>
+            <th>Price</th>
+            <th>Actions</th>
+        </thead>
+       </tr>
+       <tbody>
+      
+       {% for asset in assets  %}
+           <tr>
+               <td>{{asset.asset_serial}}</td>
+                <td>{{asset.asset_name}}</td>
+                <td>{{asset.get_manufacturer_display}}</td>
+                <td>{{asset.model}}</td>
+                <td>{{asset.get_category_display}}</td>
+                <td>{{asset.description | truncatechars:50}}</td>
+                <td>{{asset.holder}}</td>
+                <td>{{asset.location}}</td>
+                <td>{{asset.price}}</td>
+                <td>
+                <a href="#"><i class="fa fa-pencil"></i></a>
+                <a href="{% url 'delete' asset.id %}"><i class="fa fa-trash"></i></a>
+                </td>
+           </tr>
+            {% endfor %}
+
+       </tbody>
+    </table>
+    {% else %}
+               <div class="alert alert-warning">No Asset Found in stock</div>
+             {% endif %}
+</div>
+    </div>
+{% endblock  %}

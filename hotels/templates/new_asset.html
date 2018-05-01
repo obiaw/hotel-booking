@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block head_title %}New Asset {% endblock %}
+<style type="text/css">
+    {% block style %}
+        .panel-header{
+        padding: 4px;
+        margin-bottom: 10px;
+        text-align: center;
+        background: #eee;
+}
+.submissons{
+  margin-top: 2em;
+  float: right;
+}
+    {% endblock  %}
+</style>
+{% block head_section %}
+<div class="container-fluid" style="background: #f5f5f5;">
+ <div class="bread-crumbs col-sm-4">
+     <h4><a>Asests</a>/ New</h4>
+ </div>
+</div>
+{% endblock %}
+
+{% block content %}
+  <div class="row" style="margin-bottom: 2em; margin-top: -70px;">
+    <form method="POST" action=""  style="margin-bottom: 3em;"> {% csrf_token %}
+      {% crispy form %}
+    </form>
+  </div>
+
+{% endblock  %}
+

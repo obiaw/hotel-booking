@@ -1,0 +1,50 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="{% static 'images/logo.png' %}">
+    <title>Hotel Guide | {% block head_title %} {% endblock %}</title>
+
+    {% include 'head_css.html' %}
+      
+    <style>
+    {% block style %}
+      
+
+    {% endblock %}
+    </style>
+
+  </head>
+
+  <body>
+
+     {% if not user.is_authenticated %}
+
+     {% else %}
+      {% include 'navbar.html' %} 
+     {% endif %}
+    <!-- Begin page content -->
+    {% block head_section %}
+
+    {% endblock %}
+    <div class="container-fluid" style="margin-top:15px;">
+    {% block content %}
+      
+    {% endblock  %}
+     <footer class="footer text-center">
+      <div class="container">
+        <p class="text-muted">&copy; 2017-2018 |  Technology Group  Africa | All Rights | Developed with  <i class="fa fa-heart"></i>  by OW </p>
+      </div>
+    </footer>
+    </div>
+    
+   
+    {% include "bottom_js.html" %}
+  </body>
+</html>

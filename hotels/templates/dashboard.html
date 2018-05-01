@@ -1,0 +1,152 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block head_title %} Dashboard {% endblock %}
+
+{% block content %}
+
+    <div class="row">
+      <div class="col-md-9 col-sm-4 col-xs-12">
+             <div class="row">
+                 <div class="col-md-4 col-sm-4 col-xs-12">
+                   <div class="x_panel tile  overflow_hidden">
+                       <div class="col-md-3" style="background-color:#3a3; padding:15px; border-radius:10px;color:#fff">
+                           <i class="fa fa-cube fa-3x"></i>
+                       </div>
+                       <div class="col-md-9">
+                           <h4>Total Rooms</h4>
+                           <p><b>50</b></p>
+                       </div>
+                   </div>
+                 </div>
+                 <div class="col-md-4 col-sm-4 col-xs-12">
+                   <div class="x_panel tile  overflow_hidden">
+                       <div class="col-md-3" style="background-color:#822; padding:15px; border-radius:10px;color:#fff">
+                           <i class="fa fa-chain-broken fa-3x"></i>
+                       </div>
+                       <div class="col-md-9">
+                           <h4>Total Cash Collected</h4>
+                           <p><b>$10000</b></p>
+                       </div>
+                   </div>
+                 </div>
+
+                 <div class="col-md-4 col-sm-4 col-xs-12">
+                   <div class="x_panel tile  overflow_hidden">
+                       <div class="col-md-3" style="background-color:#3a3; padding:15px; border-radius:10px;color:#fff">
+                           <i class="fa fa-cubes fa-3x"></i>
+                       </div>
+                       <div class="col-md-9">
+                           <h4>Singles</h4>
+                           <p><b>10</b></p>
+                       </div>
+                   </div>
+                 </div>
+            </div>
+            <div class="x_panel tile  overflow_hidden">
+              <div class="x_title">
+                <h2>Bookings From Hotel Guide</h2>
+                <div class="clearfix"></div>
+              </div>
+              <div class="x_content">
+                  <div class="col-md-12">
+                      <table class="table table-bordered table-hover">
+       <tr>
+        <thead>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Room Type</th>
+            <th>Price</th>
+            <th>Check In</th>
+            <th>Check Out</th>
+            <th>Payment Method</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </thead>
+       </tr>
+       <tbody>
+           <tr>
+               <td>obia</td>
+                <td>obia@gmail.com</td>
+                <td>0755773737</td>
+                <td>Delux</td>
+                <td>$200</td>
+                <td>12/10/2009</td>
+                <td>14/10/2009</td>
+                <td>Cash on Arrival</td>
+                <td>No paid</td>
+                <td>
+                <a href="#"><i class="fa fa-pencil"></i></a>
+                <a href=""><i class="fa fa-trash"></i></a>
+                </td>
+           </tr>
+       </tbody>
+    </table>
+                  </div>
+              </div>
+            </div>
+          </div><!-- end of col-->
+
+        <div class="col-md-3 col-sm-4 col-xs-12">
+             <div class="x_panel tile">
+              <div class="x_title">
+                <h2>Room Types {{rooms.hotel__name}}</h2>
+                <ul class="nav navbar-right panel_toolbox">
+
+                </ul>
+                <div class="clearfix"></div>
+              </div>
+              <div class="x_content">
+                 {% if rooms %}
+                  {% for room in rooms %}
+                    <p>{{room.room_type}} <span class="badge badge-info pull-right">{{room.number_available}}</span></p>
+                  {% endfor %}
+                  {% endif %}
+              </div>
+            </div> 
+
+              <div class="x_panel tile">
+              <div class="x_title">
+                <h2>New Rooms</h2>
+                 <span class="badge bg-red right"></span>
+                <div class="clearfix"></div>
+              </div>
+              <div class="x_content">
+                  <div class="col-xs-10">
+                      <form>
+                        <div class="form-group">
+                          <input type="text" name="roomtype" placeholder="Name eg Delux Double" class="form-control">
+                        </div>
+                         <div class="form-group">
+                          <input type="text" name="price" placeholder="Price eg $200" class="form-control">
+                        </div>
+                         <div class="form-group">
+                          <input type="text" name="number" placeholder="Number eg 10" class="form-control">
+                        </div>
+                         <div class="form-group">
+                          <input type="submit" name="submit" value="+ Create Room" class="btn btn-primary btn-sm">
+                        </div>
+                      </form>
+                  </div>
+              </div>
+            </div>
+
+            <!--   <div class="x_panel tile ">
+              <div class="x_title">
+                <h2>Asset entrants</h2>
+                 <span class="badge bg-red right" style="color:white; font-size:10px !important">4</span>
+                <div class="clearfix"></div>
+              </div>
+              <div class="x_content">
+                <p><i class="fa fa-info-circle fa-2x"></i> <a class="disabled-text"> &nbsp;Junior, Edgar and 2 others</a></p>
+
+            </div>
+          </div> -->
+
+
+
+    </div>
+    </div><!---end of row-->
+
+
+{% endblock  %}
