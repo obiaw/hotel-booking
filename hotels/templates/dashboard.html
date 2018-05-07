@@ -31,7 +31,7 @@
                  </div>
 
                  <div class="col-md-4 col-sm-4 col-xs-12">
-                   <div class="x_panel tile  overflow_hidden">
+                   <div class="x_panel tile  overflow_hinewbookdate.hotel_id = dden">
                        <div class="col-md-3" style="background-color:#3a3; padding:15px; border-radius:10px;color:#fff">
                            <i class="fa fa-cubes fa-3x"></i>
                        </div>
@@ -90,7 +90,7 @@
         <div class="col-md-3 col-sm-4 col-xs-12">
              <div class="x_panel tile">
               <div class="x_title">
-                <h2>Room Types {{rooms.hotel__name}}</h2>
+                <h2>Rooms In <span class="badge-info badge">{% if hotel %} {% for h in hotel%}{{h.name}}{% endfor %}{% endif %}</span></h2>
                 <ul class="nav navbar-right panel_toolbox">
 
                 </ul>
@@ -99,13 +99,15 @@
               <div class="x_content">
                  {% if rooms %}
                   {% for room in rooms %}
-                    <p>{{room.room_type}} <span class="badge badge-info pull-right">{{room.number_available}}</span></p>
+                    <p>{{room.room_type}}- {{room.price}}<span class="badge badge-info pull-right">{{room.number_available}}</span></p>
                   {% endfor %}
                   {% endif %}
+                  <br><br>
+                  <a href="{% url 'new_room' %}" class="btn btn-primary btn-sm">+ Create New Room</a>
               </div>
             </div> 
 
-              <div class="x_panel tile">
+              <!-- <div class="x_panel tile">
               <div class="x_title">
                 <h2>New Rooms</h2>
                  <span class="badge bg-red right"></span>
@@ -113,23 +115,10 @@
               </div>
               <div class="x_content">
                   <div class="col-xs-10">
-                      <form>
-                        <div class="form-group">
-                          <input type="text" name="roomtype" placeholder="Name eg Delux Double" class="form-control">
-                        </div>
-                         <div class="form-group">
-                          <input type="text" name="price" placeholder="Price eg $200" class="form-control">
-                        </div>
-                         <div class="form-group">
-                          <input type="text" name="number" placeholder="Number eg 10" class="form-control">
-                        </div>
-                         <div class="form-group">
-                          <input type="submit" name="submit" value="+ Create Room" class="btn btn-primary btn-sm">
-                        </div>
-                      </form>
+              
                   </div>
               </div>
-            </div>
+            </div> -->
 
             <!--   <div class="x_panel tile ">
               <div class="x_title">
