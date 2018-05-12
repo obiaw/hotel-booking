@@ -21,7 +21,7 @@ from django.contrib.auth import views as auth_views
 from hotels.forms import LoginForm
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('webadmin/', admin.site.urls),
     path('', include('hotels.urls')),
     path('', include('bookings.urls')),
     url(r'^dashboard/login/$', auth_views.login, {'template_name': 'login.html'}, name='login'),

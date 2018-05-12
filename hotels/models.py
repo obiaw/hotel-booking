@@ -18,7 +18,7 @@ class Rooms(models.Model):
     room_type = models.CharField(max_length=100)
     price = MoneyField(max_digits=65, decimal_places=2, default_currency='USD')
     number_available = models.IntegerField()
-    hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE)
+    hotel = models.ForeignKey(Hotel, on_delete= models.CASCADE)
 
     class Meta:
         verbose_name_plural = "Rooms"
