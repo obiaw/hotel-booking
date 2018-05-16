@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'hotels',
     'bookings',
-    'crispy_forms'
+    'crispy_forms',
+    'userprofile'
 ]
 
 MIDDLEWARE = [
@@ -134,4 +135,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 CRISPY_TEMPLATE_PACK ='bootstrap3'
 LOGIN_REDIRECT_URL = 'home' # It means home view
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")

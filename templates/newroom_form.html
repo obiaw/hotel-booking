@@ -1,0 +1,32 @@
+  {% extends "base.html" %}
+  {% load crispy_forms_tags %}
+  <style type="text/css">
+{% block style %}
+.panel-header{
+padding: 4px;
+margin-bottom: 10px;
+text-align: center;
+background: #eee;
+}
+.submissons{
+margin-top: 2em;
+float: right;
+}
+.newroom_form{
+background: #fff;
+padding:10px;
+}
+{% endblock  %}
+
+
+</style>
+  {% block content %}
+  <div class="row" style="margin-bottom: 2em; margin-top: 70px;">
+  <div class="col-sm-4 col-sm-offset-4">
+  <form method="POST" action="" class="newroom_form"> {% csrf_token %}
+  {% crispy form %}
+
+  </form>
+  </div>
+  </div>
+  {% endblock %}

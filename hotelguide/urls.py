@@ -24,7 +24,10 @@ urlpatterns = [
     path('webadmin/', admin.site.urls),
     path('', include('hotels.urls')),
     path('', include('bookings.urls')),
+    path('user', include('userprofile.urls')),
     url(r'^dashboard/login/$', auth_views.login, {'template_name': 'login.html'}, name='login'),
     # url(r'^login/$',  auth_views.login, {'template_name': 'login.html','authentication_form': LoginForm}),
     url(r'^dashboard/logout/$', auth_views.logout, {'next_page': '/dashboard/login'}), 
+    # url(r'^user/profile/$', include('userprofile.urls', namespace='userprofile')),
+    # url(r"^account/", include("account.urls")),
 ]

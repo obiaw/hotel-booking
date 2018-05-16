@@ -101,7 +101,10 @@
                   {% for room in rooms %}
                     <p>{{room.room_type}}- {{room.price}}<span class="badge badge-info pull-right">{{room.number_available}}</span></p>
                   {% endfor %}
+                 {% else %}
+                 <p class="alert alert-warning">You have not added any rooms yet! Add Now</p>
                   {% endif %}
+                  
                   <br><br>
                   <a href="{% url 'new_room' %}" class="btn btn-primary btn-sm">+ Create New Room</a>
               </div>

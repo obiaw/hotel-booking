@@ -24,5 +24,5 @@ class Rooms(models.Model):
         verbose_name_plural = "Rooms"
 
     def __str__(self):
-        return self.room_type
+        return self.room_type, self.price
 
